@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
         <div class="form-group">
             <label>Email</label>
             <input type="text" name="email" class="form-control">
-            <div class="" style="color: crimson"> <?php echo empty($msg3) ?? $msg3 ?></div>
+            <div class="" style="color: crimson"> <?php echo empty($msg3) ? $msg3 : '' ?></div>
         </div>
         <div class="form-foter">
             <button type="submit" name="submit">Save</button>
