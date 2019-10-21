@@ -16,14 +16,13 @@ if (!$conn->connect_error) {
 $sql = "SELECT * FROM MyGuests";
 $result = $conn->query($sql);
 $urlEdit = url() . 'edit.php';
-$href = '<a href = "' . $urlEdit . '" >Edit</a>';
 
 if ($result->num_rows > 0) {
     echo "<table class='table table-bordered'><tr><th>ID</th><th>Name</th>><th>Email</th><th>Action</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td><td>".$row["email"]."</td><td>".
-            $href
+            '<a href = "' . $urlEdit .'?id='.$row["id"]. '" >Edit</a>'
             ."</td>"."</tr>";    }
     echo "</table>";
 } else {
