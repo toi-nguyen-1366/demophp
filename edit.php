@@ -1,9 +1,14 @@
 <?php
 
-
+if(isset($_POST['submit'])){
+    $firtName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    echo $firtName;
+}
 ?>
 <div class="container">
-    <form action="" >
+    <form action="" method="post">
         <div class="form-group">
             <label>First Name</label>
             <input type="text" name="firstName" class="form-control">
