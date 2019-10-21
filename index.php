@@ -14,6 +14,7 @@ if ($result) {
             '<a href = "' . $urlEdit .'?id='.$row["id"]. '" >Edit</a>'
             ."</td>"."</tr>";    }
     echo "</table>";
+
 } else {
     echo "0 results";
 }
