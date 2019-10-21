@@ -1,6 +1,7 @@
 <?php
+include_once "bbeCore.php";
 
-if(isset($_POST['submit']) && empty($_GET['id'])){
+if(isset($_POST['submit']) && !empty($_GET['id'])){
     $firtName = $_POST['firstName'] ?? '';
     $lastName = $_POST['lastName'] ?? '';
     $email = $_POST['email'] ?? '';
@@ -15,17 +16,16 @@ if(isset($_POST['submit']) && empty($_GET['id'])){
         $msg3 = "email is not empty!";
     }
     if($firtName != '' && $lastName != '' && $email != '') {
-        $sqlInsert = "UPDATE `MyGuests` set firstname = $firtName,
-                                lastname = $lastName,
-                                email = $email
-                                where id = $id";
-    }else{
-        echo "no";
+        $sqlInsert = "UPDATE `MyGuests` set firstname = '$firtName',lastname = '$lastName',email ='$email' where id = $id";
+        $model = new bbeCore();
+        $result = $model->upadteData($sqlInsert,'MyGuests');
+
     }
 }
 ?>
+<?php echo  $model->url() ?>
 <div class="container">
-    <form action="" method="post">
+    <form method="post">
         <div class="form-group">
             <label>First Name</label>
             <input type="text" name="firstName" class="form-control" value="<?php echo isset($firtName) ? $firtName : '' ?>">
@@ -47,3 +47,9 @@ if(isset($_POST['submit']) && empty($_GET['id'])){
         </div>
     </form>
 </div>
+<script>
+    <?php if(isset($result)){ ?>
+    alert('<?php echo $result?>');
+    window.location.replace(<?php echo  url() ?>);
+    <?php } ?>
+</script>
