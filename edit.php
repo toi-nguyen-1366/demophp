@@ -23,7 +23,6 @@ if(isset($_POST['submit']) && !empty($_GET['id'])){
     }
 }
 ?>
-<?php echo  $model->url() ?>
 <div class="container">
     <form method="post">
         <div class="form-group">
