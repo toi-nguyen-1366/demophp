@@ -6,12 +6,13 @@ class bbeCore
 
     public function __construct()
     {
-        $servername = "127.0.0.1:3399";
-        $username = "root";
-        $password = "";
-        $dbname = "user";
+        $dbbase = include "config.php";
+        $server = $dbbase['db']['servername'];
+        $dbname =  $dbbase['db']['dbname'];
+        $username =  $dbbase['db']['username'];
+        $password =  $dbbase['db']['password'];
         try {
-            $this->conn = new PDO("mysql:host=$servername;dbname=user", $username, $password);
+            $this->conn = new PDO("mysql:host=$server;dbname=".$dbname, $username, $password);
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
