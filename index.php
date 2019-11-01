@@ -30,7 +30,10 @@ function url(){
                 <td><?php echo $row['id'] ?></td>
                 <td><?php echo $row['firstname'] ?></td>
                 <td><?php echo $row['email'] ?></td>
-                <td> <a href = "<?php echo $urlEdit . "?id=" .$row['id'] ?>">Edit</a></td>
+                <td>
+                    <a href = "<?php echo $urlEdit . "?id=" .$row['id'] ?>">Edit</a>
+                    <a href = "<?php echo url() . "/delete.php?id=" .$row['id'] ?>">delete</a>
+                </td>
             </tr>
         <?php endforeach ?>
         </tbody>
