@@ -1,5 +1,4 @@
 <?php
-echo "hello wodd";
 include_once "bbeCore.php";
 
 $model = new bbeCore();
