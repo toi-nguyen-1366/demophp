@@ -4,6 +4,7 @@ include_once "bbeCore.php";
 $model = new bbeCore();
 $result = $model->getAllData('MyGuests');
 
+
 $urlEdit =url() . '/edit.php';
 function url(){
     $post =  (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://';
