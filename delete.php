@@ -9,5 +9,6 @@ if($id){
     $sql = $sql = "DELETE FROM MyGuests WHERE id=$id";
     $resuft = $model->deleteData($sql);
     die($resuft);
+
 }
 ?>
