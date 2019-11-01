@@ -49,6 +49,17 @@ class bbeCore
         return $msg;
     }
 
+    public function createData(string $sql){
+        try{
+            $this->conn->exec($sql);
+            $msg = "update succesfully";
+        }catch (PDOException  $e){
+            echo '<pre>';
+            print_r($e->getMessage());
+            die("1");
+        }
+    }
+
 }
 
 
